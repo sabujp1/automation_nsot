@@ -1,4 +1,4 @@
-site_name: 'রোড টু হাইটেক ইন্ডাস্ট্রি:আইএসপি অটোমেশন ২'
+site_name: 'আইএসপি অটোমেশন: নেটওয়ার্ক সোর্স অফ ট্রুথ'
 theme:
   name: material
   language: bn
@@ -7,7 +7,7 @@ theme:
 site_url: https://aiwithr.github.io/automation_nsot/
 site_author: রকিবুল হাসান
 site_description: >-
-  আইএসপি অটোমেশন: নেটওয়ার্ক সোর্স অফ ট্রুথ
+   রোড টু হাইটেক ইন্ডাস্ট্রি:আইএসপি অটোমেশন ২
 # Repository
 repo_name: raqueeb/mltraining
 repo_url: https://github.com/raqueeb/mltraining/
@@ -177,7 +177,8 @@ nav:
   - পেছনের দর্শন:
     - নেটওয়ার্ক সোর্স অফ ট্রুথ: nsot.md
     - ইন্ডাস্ট্রি ট্রেন্ড: trend.md
-#     - বইটাকে কিভাবে সাজানো হয়েছে?: organization.md
+    - বইয়ের সম্ভাব্য চ্যাপ্টার স্ট্রাকচার: contents1.md
+    - অথবা শুধুমাত্র NSOT: contents2.md
 #     - উৎসর্গ: dedication.md
 #     - কৃতজ্ঞতা এবং বাড়তি রিডিং: courtesy.md
 # #    - কেন বইটা লিখতে চাইলাম?: why-writing.md

@@ -2,7 +2,7 @@
 
 এই বইয়ের শুরুতে আমরা একটা স্বপ্ন দেখেছিলাম - ১ মিলিয়ন ইন্টারনেট গ্রাহক। যেটা শুনতে অসম্ভব মনে হয়েছিল। কিন্তু SkyNets Bangladesh এর জার্নি দেখলাম - ৮ হাজার থেকে ৫০ হাজার, তারপর ১ লক্ষের পথে। এখন প্রশ্ন হলো - ১ মিলিয়নে কীভাবে যাওয়া যায়?
 
-এই চ্যাপ্টারে আমরা দেখব পুরো রোডম্যাপ - ৮ হাজার থেকে ১ মিলিয়ন পর্যন্ত। প্রতিটা মাইলস্টোনে কী কী চ্যালেঞ্জ আসবে, কী কী টেকনোলজি দরকার হবে, আর কীভাবে Network Source of Truth (Nautobot) সেই পুরো যাত্রায় সাথে থাকবে।
+এই চ্যাপ্টারে আমরা দেখব পুরো রোডম্যাপ - ৫ হাজার থেকে ১ মিলিয়ন পর্যন্ত। প্রতিটা মাইলস্টোনে কী কী চ্যালেঞ্জ আসবে, কী কী টেকনোলজি দরকার হবে, আর কীভাবে Network Source of Truth (Nautobot) সেই পুরো যাত্রায় সাথে থাকবে।
 
 ## স্কেলিং মাইলস্টোন - একটা সম্পূর্ণ ম্যাপ
 
@@ -24,7 +24,7 @@
 
 ---
 
-## মাইলস্টোন ১: ৮ হাজার কাস্টমার - Foundation (০-২ বছর)
+## মাইলস্টোন ১: ৫ হাজার কাস্টমার - Foundation (০-২ বছর)
 
 ### পরিস্থিতি
 
@@ -175,17 +175,20 @@
 ### নতুন চ্যালেঞ্জ
 
 **জিওগ্রাফিক্যাল স্কেল:**
+
 - একাধিক সিটিতে অপারেশন
 - Regional teams coordination
 - Centralized vs decentralized management
 
 **টেকনিক্যাল কমপ্লেক্সিটি:**
+
 - মাল্টিপল upstream providers
 - Complex routing policies
 - Inter-POP connectivity
 - Disaster recovery planning
 
 **অপারেশনাল:**
+
 - 24/7 NOC operations
 - Incident management at scale
 - Change management process
@@ -193,6 +196,7 @@
 **সমাধান - Enterprise-Grade Automation:**
 
 **Infrastructure as Code (IaC):**
+
 - সব নেটওয়ার্ক কনফিগ Git এ
 - Pull request → Review → Automated deployment
 - Rollback capability
@@ -206,11 +210,13 @@ Code Change → Tests → Staging → Production
 ```
 
 **Monitoring Integration:**
+
 - Prometheus/Grafana থেকে Nautobot sync
 - Automatic incident creation
 - Topology mapping
 
 **Self-Service Portal:**
+
 - Field team নিজেরা কিছু কাজ করতে পারবে
 - Approval workflow
 - Audit trail

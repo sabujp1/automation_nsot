@@ -435,6 +435,11 @@ SkyNets একটা প্র্যাগম্যাটিক পলিসি 
 - View: সব
 - Add/Edit/Delete: না (read-only)
 
+**Super Admin:**
+
+- View: সব
+- Add/Edit/Delete: হা (write)
+
 ### Collaboration Workflow
 
 একটা স্ট্যান্ডার্ড ওয়ার্কফ্লো:
@@ -467,7 +472,7 @@ SkyNets একটা প্র্যাগম্যাটিক পলিসি 
 
 ## সপ্তম চ্যালেঞ্জ: Data Quality Control
 
-১৫০ ডিভাইস মানে ১৫০ জায়গায় ভুল হওয়ার সম্ভাবনা। Data Quality নিশ্চিত করা জরুরি।
+১৫০ ডিভাইস মানে ১৫০ জায়গায় ভুল হওয়ার সম্ভাবনা। Data Quality নিশ্চিত করা জরুরি। আমরা কনফিগারেশন টেম্পলেট ব্যাবহার করতে পারি।
 
 ### Weekly Data Audit
 

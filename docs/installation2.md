@@ -20,6 +20,10 @@ SkyNets Bangladesh আইএসপি হিসেবে বেশ নাম ক
 
 ৬. **Plugin Ecosystem:** আরো শক্তিশালী plugin system। Golden Config, Device Lifecycle Management - এসব plugin সহজে integrate করা যায়।
 
+৭. **Major UI refresh:** নতুন Bootstrap 5 ভিত্তিক ইন্টারফেস, গ্লোবাল সার্চ, ফ্লাইআউট নেভিগেশন – ব্যবহার করা অনেক সহজ হয়েছে।
+
+৮. **Approval Workflows:** জব/চেঞ্জের জন্য মাল্টি-স্টেজ অ্যাপ্রুভাল সিস্টেম – টিমে কাজ করলে ভুল কমবে।
+
 SkyNets Bangladesh এই কারণে 3.0 বেছে নিয়েছে। তারা জানে ভবিষ্যতে scaling করতে হবে, তাই শুরু থেকেই সবচেয়ে আধুনিক ভার্সন দিয়ে শুরু করছে।
 
 ### সিস্টেম রিকোয়ারমেন্ট
@@ -123,7 +127,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 sudo docker --version
 ```
 
-দেখাবে: `Docker version 24.0.7, build...`
+দেখাবে: `Docker version 29.2.1, build...`
 
 #### স্টেপ ৩: Nautobot Docker Compose সেটআপ
 

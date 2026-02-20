@@ -1,6 +1,6 @@
-SkyNets Bangladesh আইএসপি হিসেবে বেশ নাম করেছে। ঢাকা নর্থ জোনে মূলতঃ তাদের নেটওয়ার্ক। বর্তমানে মিরপুর এবং উত্তরায় দুটো পপ, প্রায় ৫ হাজার কাস্টমার। তারা সিদ্ধান্ত নিয়েছে এক্সেল শিট/গুগল শিট এবং হাতে আঁকা ডায়াগ্রাম ছেড়ে একটা প্রপার Network Source of Truth সিস্টেম বানাবে। তাদের লক্ষ্য পরের দুই বছরে ৫০ হাজার কাস্টমারে পৌঁছানো, আর তারপর ১ লক্ষ। এজন্য দরকার একটা শক্ত ফাউন্ডেশন। সেই ফাউন্ডেশনের নাম Nautobot 3.0।
+Nirvor Communication আইএসপি হিসেবে বেশ নাম করেছে। ঢাকা নর্থ জোনে মূলতঃ তাদের নেটওয়ার্ক। বর্তমানে মিরপুর এবং উত্তরায় দুটো পপ, প্রায় ৫ হাজার কাস্টমার। তারা সিদ্ধান্ত নিয়েছে এক্সেল শিট/গুগল শিট এবং হাতে আঁকা ডায়াগ্রাম ছেড়ে একটা প্রপার Network Source of Truth সিস্টেম বানাবে। তাদের লক্ষ্য পরের দুই বছরে ৫০ হাজার কাস্টমারে পৌঁছানো, আর তারপর ১ লক্ষ। এজন্য দরকার একটা শক্ত ফাউন্ডেশন। সেই ফাউন্ডেশনের নাম Nautobot 3.0।
 
-এই চ্যাপ্টারে আমরা দেখব কীভাবে SkyNets Bangladesh তাদের নেটওয়ার্কের জন্য Nautobot 3.0 ইনস্টল এবং সেটআপ করেছে। আপনিও একইভাবে আপনার ISP-এর জন্য সেটআপ করতে পারবেন।
+এই চ্যাপ্টারে আমরা দেখব কীভাবে Nirvor Communication তাদের নেটওয়ার্কের জন্য Nautobot 3.0 ইনস্টল এবং সেটআপ করেছে। আপনিও একইভাবে আপনার ISP-এর জন্য সেটআপ করতে পারবেন।
 
 ### কেন Nautobot 3.0?
 
@@ -24,13 +24,13 @@ SkyNets Bangladesh আইএসপি হিসেবে বেশ নাম ক
 
 ৮. **Approval Workflows:** জব/চেঞ্জের জন্য মাল্টি-স্টেজ অ্যাপ্রুভাল সিস্টেম – টিমে কাজ করলে ভুল কমবে।
 
-SkyNets Bangladesh এই কারণে 3.0 বেছে নিয়েছে। তারা জানে ভবিষ্যতে scaling করতে হবে, তাই শুরু থেকেই সবচেয়ে আধুনিক ভার্সন দিয়ে শুরু করছে।
+Nirvor Communication এই কারণে 3.0 বেছে নিয়েছে। তারা জানে ভবিষ্যতে scaling করতে হবে, তাই শুরু থেকেই সবচেয়ে আধুনিক ভার্সন দিয়ে শুরু করছে।
 
 ### সিস্টেম রিকোয়ারমেন্ট
 
-Nautobot চালাতে হলে একটা লিনাক্স সার্ভার দরকার। SkyNet Bangladesh-এর ক্ষেত্রে তারা একটা ডেডিকেটেড Ubuntu server সেটআপ করেছে।
+Nautobot চালাতে হলে একটা লিনাক্স সার্ভার দরকার। Nirvor Communication-এর ক্ষেত্রে তারা একটা ডেডিকেটেড Ubuntu server সেটআপ করেছে।
 
-#### হার্ডওয়্যার রিকোয়ারমেন্ট (SkyNet-এর সাইজের জন্য):
+#### হার্ডওয়্যার রিকোয়ারমেন্ট (Nirvor Communication-এর সাইজের জন্য):
 
 ```
 CPU: 4 cores (Intel/AMD)
@@ -53,7 +53,7 @@ PostgreSQL: 13 বা তার উপরে
 Redis: 6.0 বা তার উপরে
 ```
 
-SkyNet Ubuntu 24.04 LTS বেছে নিয়েছে কারণ এটা long-term support পাবে ২০২৯ সাল পর্যন্ত।
+Nirvor Communication Ubuntu 24.04 LTS বেছে নিয়েছে কারণ এটা long-term support পাবে ২০২৯ সাল পর্যন্ত।
 
 ### ইনস্টলেশন পদ্ধতি - কোনটা বেছে নেবেন?
 
@@ -71,7 +71,7 @@ Nautobot ইনস্টল করার দুটো প্রধান উপ�
 - Production-এর জন্য best
 - সব কিছু নিজের মতো সাজানো যায়
 
-SkyNet Bangladesh দুটো পদ্ধতিই অনুসরণ করেছে:
+Nirvor Communication দুটো পদ্ধতিই অনুসরণ করেছে:
 
 - প্রথমে Docker দিয়ে টেস্ট করেছে
 - তারপর Production-এর জন্য Traditional Installation করেছে 
@@ -84,12 +84,12 @@ SkyNet Bangladesh দুটো পদ্ধতিই অনুসরণ কর�
 
 #### স্টেপ ১: সার্ভার প্রস্তুত করা
 
-একটা নতুন Ubuntu 24.04 সার্ভার নিন। SkyNet একটা VM ব্যবহার করেছে তাদের NOC-এর ভেতরে।
+একটা নতুন Ubuntu 24.04 সার্ভার নিন। Nirvor Communication একটা VM ব্যবহার করেছে তাদের NOC-এর ভেতরে।
 
 SSH করে সার্ভারে লগইন করুন:
 
 ```bash
-ssh admin@nautobot-server.skynet.bd
+ssh admin@nautobot-server.nirvor.bd
 ```
 
 সিস্টেম আপডেট করুন:
@@ -157,18 +157,18 @@ sudo nano development/creds.env
 ```bash
 # Database credentials
 NAUTOBOT_DB_USER=nautobot
-NAUTOBOT_DB_PASSWORD=SkyNet@2025$Secure  # শক্তিশালী পাসওয়ার্ড দিন
-POSTGRES_PASSWORD=SkyNet@2025$PostgreSQL  # আলাদা শক্তিশালী পাসওয়ার্ড
+NAUTOBOT_DB_PASSWORD=nirvor@2025$Secure  # শক্তিশালী পাসওয়ার্ড দিন
+POSTGRES_PASSWORD=nirvor@2025$PostgreSQL  # আলাদা শক্তিশালী পাসওয়ার্ড
 
 # Nautobot superuser
 NAUTOBOT_CREATE_SUPERUSER=true
 NAUTOBOT_SUPERUSER_USERNAME=admin
-NAUTOBOT_SUPERUSER_PASSWORD=SkyNet@Admin2025!  # শক্তিশালী পাসওয়ার্ড
-NAUTOBOT_SUPERUSER_EMAIL=admin@skynet.bd
+NAUTOBOT_SUPERUSER_PASSWORD=nirvor@Admin2025!  # শক্তিশালী পাসওয়ার্ড
+NAUTOBOT_SUPERUSER_EMAIL=admin@nirvor.bd
 NAUTOBOT_SUPERUSER_API_TOKEN=0123456789abcdef0123456789abcdef01234567  # Random 40-char token
 
 # Redis password
-NAUTOBOT_REDIS_PASSWORD=SkyNet@Redis2025$
+NAUTOBOT_REDIS_PASSWORD=nirvor@Redis2025$
 ```
 
 `.env` ফাইল এডিট করুন:
@@ -181,8 +181,8 @@ sudo nano .env
 NAUTOBOT_IMAGE=networktocode/nautobot:3.0-py3.11
 NAUTOBOT_VERSION=3.0.0
 
-# SkyNet specific settings
-NAUTOBOT_ALLOWED_HOSTS=nautobot.skynet.bd,localhost,127.0.0.1
+# Nirvor Communication specific settings
+NAUTOBOT_ALLOWED_HOSTS=nautobot.nirvor.bd,localhost,127.0.0.1
 ```
 
 সেভ করুন (Ctrl+O, Enter, Ctrl+X)।
@@ -224,7 +224,7 @@ sudo docker compose ps
 http://your-server-ip:8080
 ```
 
-SkyNet-এর ক্ষেত্রে:
+Nirvor Communication-এর ক্ষেত্রে:
 
 ```
 http://192.168.10.50:8080
@@ -234,7 +234,7 @@ http://192.168.10.50:8080
 
 ```
 Username: admin
-Password: SkyNet@Admin2025!
+Password: nirvor@Admin2025!
 ```
 
 অভিনন্দন! Nautobot 3.0 চালু হয়ে গেছে।
@@ -248,20 +248,20 @@ Docker দিয়ে শুরু করা সহজ, কিন্তু ক�
 - Backup/restore complex
 - Production-grade SSL/Nginx setup লাগে extra কাজ
 
-এজন্য SkyNet Bangladesh production-এর জন্য Traditional Installation বেছে নিয়েছে।
+এজন্য Nirvor Communication production-এর জন্য Traditional Installation বেছে নিয়েছে।
 
 ---
 
 ### পদ্ধতি ২: Traditional Installation (Production-Ready)
 
-এখন দেখব কীভাবে SkyNet Bangladesh তাদের production Nautobot server সেটআপ করেছে। এটা একটু সময় সাপেক্ষ কিন্তু সম্পূর্ণ নিয়ন্ত্রণ পাবেন।
+এখন দেখব কীভাবে Nirvor Communication তাদের production Nautobot server সেটআপ করেছে। এটা একটু সময় সাপেক্ষ কিন্তু সম্পূর্ণ নিয়ন্ত্রণ পাবেন।
 
 #### স্টেপ ১: নতুন Ubuntu 24.04 Server
 
 একটা ফ্রেশ Ubuntu 24.04 LTS সার্ভার নিন। SSH করে লগইন করুন:
 
 ```bash
-ssh admin@nautobot.skynet.bd
+ssh admin@nautobot.nirvor.bd
 ```
 
 সিস্টেম আপডেট:
@@ -294,7 +294,7 @@ PostgreSQL প্রম্পটে:
 CREATE DATABASE nautobot;
 
 -- Nautobot user তৈরি
-CREATE USER nautobot WITH PASSWORD 'SkyNet@DB2025$Secure';
+CREATE USER nautobot WITH PASSWORD 'nirvor@DB2025$Secure';
 
 -- User-কে database access দিন
 ALTER ROLE nautobot SET client_encoding TO 'utf8';
@@ -315,7 +315,7 @@ ALTER DATABASE nautobot OWNER TO nautobot;
 
 ```bash
 psql -U nautobot -d nautobot -h localhost
-# Password দিন: SkyNet@DB2025$Secure
+# Password দিন: nirvor@DB2025$Secure
 ```
 
 যদি কানেক্ট হয়, তাহলে ঠিক আছে। `\q` দিয়ে বের হন।
@@ -332,7 +332,7 @@ sudo nano /etc/redis/redis.conf
 
 ```conf
 # Password সেট করুন (line খুঁজে আনকমেন্ট করুন)
-requirepass SkyNet@Redis2025$
+requirepass nirvor@Redis2025$
 
 # Bind করুন localhost-এ
 bind 127.0.0.1
@@ -354,7 +354,7 @@ sudo systemctl enable redis-server
 
 ```bash
 redis-cli
-> AUTH SkyNet@Redis2025$
+> AUTH nirvor@Redis2025$
 > PING
 ```
 
@@ -422,11 +422,11 @@ Configuration file তৈরি করুন:
 nano /opt/nautobot/nautobot_config/nautobot_config.py
 ```
 
-এই configuration টা পেস্ট করুন (SkyNet Bangladesh-এর জন্য কাস্টমাইজড):
+এই configuration টা পেস্ট করুন (Nirvor Communication-এর জন্য কাস্টমাইজড):
 
 ```python
 """
-Nautobot Configuration for SkyNet Bangladesh
+Nautobot Configuration for Nirvor Communication
 Production Setup
 """
 
@@ -438,10 +438,10 @@ from nautobot.core.settings import *  # noqa: F403
 # ==============================
 
 ALLOWED_HOSTS = [
-    'nautobot.skynet.bd',
+    'nautobot.nirvor.bd',
     'localhost',
     '127.0.0.1',
-    '192.168.10.50',  # SkyNet internal IP
+    '192.168.10.50',  # Nirvor internal IP
 ]
 
 # Database Configuration
@@ -450,7 +450,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'nautobot',
         'USER': 'nautobot',
-        'PASSWORD': 'SkyNet@DB2025$Secure',
+        'PASSWORD': 'nirvor@DB2025$Secure',
         'HOST': 'localhost',
         'PORT': '',
         'CONN_MAX_AGE': 300,
@@ -464,14 +464,14 @@ CACHES = {
         'LOCATION': 'redis://127.0.0.1:6379/0',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            'PASSWORD': 'SkyNet@Redis2025$',
+            'PASSWORD': 'nirvor@Redis2025$',
         },
     }
 }
 
 # Celery Configuration (Background Tasks)
-CELERY_BROKER_URL = 'redis://:SkyNet@Redis2025$@127.0.0.1:6379/1'
-CELERY_RESULT_BACKEND = 'redis://:SkyNet@Redis2025$@127.0.0.1:6379/1'
+CELERY_BROKER_URL = 'redis://:nirvor@Redis2025$@127.0.0.1:6379/1'
+CELERY_RESULT_BACKEND = 'redis://:nirvor@Redis2025$@127.0.0.1:6379/1'
 
 # ==============================
 # Security Settings
@@ -535,16 +535,16 @@ LOGGING = {
 }
 
 # ==============================
-# SkyNet Bangladesh Custom Settings
+# Nirvor Communication Custom Settings
 # ==============================
 
 # Organization name
-BANNER_TOP = 'SkyNet Bangladesh - Network Source of Truth'
+BANNER_TOP = 'Nirvor Communication - Network Source of Truth'
 BANNER_BOTTOM = 'Managed by NOC Team'
 
 # Support contact
-SUPPORT_EMAIL = 'noc@skynet.bd'
-SUPPORT_MESSAGE = 'For support, contact NOC team at noc@skynet.bd'
+SUPPORT_EMAIL = 'noc@nirvor.bd'
+SUPPORT_MESSAGE = 'For support, contact NOC team at noc@nirvor.bd'
 ```
 
 সেভ করুন।
@@ -599,8 +599,8 @@ nautobot-server createsuperuser
 
 ```
 Username: admin
-Email address: admin@skynet.bd
-Password: ********  (SkyNet@Admin2025!)
+Email address: admin@nirvor.bd
+Password: ********  (nirvor@Admin2025!)
 Password (again): ********
 Superuser created successfully.
 ```
@@ -633,7 +633,7 @@ sudo nano /etc/systemd/system/nautobot.service
 
 ```ini
 [Unit]
-Description=Nautobot WSGI Service - SkyNet Bangladesh
+Description=Nautobot WSGI Service - Nirvor Communication
 Documentation=https://docs.nautobot.com/
 After=network-online.target
 Wants=network-online.target
@@ -670,7 +670,7 @@ sudo nano /etc/systemd/system/nautobot-celery.service
 
 ```ini
 [Unit]
-Description=Nautobot Celery Worker - SkyNet Bangladesh
+Description=Nautobot Celery Worker - Nirvor Communication
 Documentation=https://docs.nautobot.com/
 After=network-online.target
 Wants=network-online.target
@@ -701,7 +701,7 @@ sudo nano /etc/systemd/system/nautobot-celery-beat.service
 
 ```ini
 [Unit]
-Description=Nautobot Celery Beat - SkyNet Bangladesh
+Description=Nautobot Celery Beat - Nirvor Communication
 Documentation=https://docs.nautobot.com/
 After=network-online.target
 Wants=network-online.target

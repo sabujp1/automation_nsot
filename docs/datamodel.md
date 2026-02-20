@@ -272,7 +272,7 @@ Cable: CORE-TO-DIST-01
   - Type: Single-Mode Fiber (SMF)
   - Status: Connected
   - Color: Blue
-  - Length: 5 m
+  - Length: 5m
   - Label: CORE-TO-DIST-01
 ```
 
@@ -292,8 +292,8 @@ Rack: Rack A
   - Width: 19 inches
   - Height: 42U
   - Description: Primary equipment rack
-  - Outer Width: 600 mm
-  - Outer Depth: 1000 mm
+  - Outer Width: 600mm
+  - Outer Depth: 1000mm
 ```
 
 **Rack Elevation:**

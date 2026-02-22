@@ -1,8 +1,8 @@
-দুই বছর আগে Nirvor Communication শুরু করেছিল মাত্র দুটো পপ নিয়ে - মিরপুর এবং উত্তরা। প্রায় ৫ হাজার কাস্টমার। তখন তারা Nautobot সেটআপ করেছিল। সেই পরিকল্পনা অনুযায়ী কাজ করেছে, সফল হয়েছে।
+দুই বছর আগে Nirvor Communication  শুরু করেছিল মাত্র দুটো পপ নিয়ে - মিরপুর এবং উত্তরা। প্রায় ৫ হাজার কাস্টমার। তখন তারা Nautobot সেটআপ করেছিল। সেই পরিকল্পনা অনুযায়ী কাজ করেছে, সফল হয়েছে।
 
-এখন ২০২৬ সাল। Nirvor Communication এর গ্রোথ হয়েছে বিশাল। বর্তমানে নর্থ ঢাকায় তাদের আটটা পপ, প্রায় পঞ্চাশ হাজার কাস্টমার। আর সবচেয়ে বড় কথা - তারা এখনও সেই একই Nautobot সিস্টেম ব্যবহার করছে যেটা দুই বছর আগে সেটআপ করেছিল।
+এখন ২০২৬ সাল। Nirvor Communication  এর গ্রোথ হয়েছে বিশাল। বর্তমানে নর্থ ঢাকায় তাদের আটটা পপ, প্রায় পঞ্চাশ হাজার কাস্টমার। আর সবচেয়ে বড় কথা - তারা এখনও সেই একই Nautobot সিস্টেম ব্যবহার করছে যেটা দুই বছর আগে সেটআপ করেছিল।
 
-কিন্তু স্কেল বাড়ার সাথে সাথে নতুন চ্যালেঞ্জ এসেছে। এই চ্যাপ্টারে আমরা দেখব কীভাবে Nirvor Communication সেই চ্যালেঞ্জগুলো সামলেছে, কী কী পরিবর্তন করেছে, আর কীভাবে Nautobot তাদের এই স্কেলিং জার্নিতে সাহায্য করেছে
+কিন্তু স্কেল বাড়ার সাথে সাথে নতুন চ্যালেঞ্জ এসেছে। এই চ্যাপ্টারে আমরা দেখব কীভাবে Nirvor Communication  সেই চ্যালেঞ্জগুলো সামলেছে, কী কী পরিবর্তন করেছে, আর কীভাবে Nautobot তাদের এই স্কেলিং জার্নিতে সাহায্য করেছে।
 
 ## বর্তমান পরিস্থিতি - ২০২৬ সালের গল্প
 
@@ -64,7 +64,7 @@ Uttara POP
 Nautobot 3.0 এর Hierarchical Locations ব্যবহার করে:
 
 ```
-Nirvor Communication Network (Location Type: Region)
+Nirvor Communication  Network (Location Type: Region)
   └── Dhaka North Zone (Location Type: Zone)
        ├── Mirpur Cluster (Location Type: Cluster)
        │    ├── Mirpur POP (Location Type: POP)
@@ -435,6 +435,11 @@ Nirvor Communication একটা প্র্যাগম্যাটিক প
 - View: সব
 - Add/Edit/Delete: না (read-only)
 
+**Super Admin:**
+
+- View: সব
+- Add/Edit/Delete: হা (write)
+
 ### Collaboration Workflow
 
 একটা স্ট্যান্ডার্ড ওয়ার্কফ্লো:
@@ -467,11 +472,11 @@ Nirvor Communication একটা প্র্যাগম্যাটিক প
 
 ## সপ্তম চ্যালেঞ্জ: Data Quality Control
 
-১৫০ ডিভাইস মানে ১৫০ জায়গায় ভুল হওয়ার সম্ভাবনা। Data Quality নিশ্চিত করা জরুরি।
+১৫০ ডিভাইস মানে ১৫০ জায়গায় ভুল হওয়ার সম্ভাবনা। Data Quality নিশ্চিত করা জরুরি। আমরা কনফিগারেশন টেম্পলেট ব্যাবহার করতে পারি।
 
 ### Weekly Data Audit
 
-Nirvor Communication প্রতি সপ্তাহে একটা ডেটা অডিট করে:
+Nirvor Communication  প্রতি সপ্তাহে একটা ডেটা অডিট করে:
 
 **সোমবার: Device Audit**
 
@@ -509,7 +514,7 @@ Orphaned IPs (no device assigned): 5 IPs
 
 ### Performance Optimization
 
-Nirvor Communication কিছু optimization করেছে:
+Nirvor Communication  কিছু optimization করেছে:
 
 **১. PostgreSQL Tuning:**
 
@@ -615,7 +620,7 @@ sudo -u postgres vacuumdb --analyze nautobot
 
 ## শিক্ষা এবং পরামর্শ
 
-Nirvor Communication এর CTO জাহাঙ্গীর সাহেবের কিছু পরামর্শ:
+Nirvor Communication  এর CTO জাহাঙ্গীর সাহেবের কিছু পরামর্শ:
 
 **১. একবারে সব করতে যাবেন না**
 

@@ -24,16 +24,6 @@ Nautobot 3.0 এ সবচেয়ে বড় পরিবর্তন হল
 
 Organization App হলো Nautobot এর ভিত্তি। এখানে আপনার নেটওয়ার্কের organizational structure define করবেন।
 
-**Key Objects:**
-
-- **Locations**
-- **Location Types**  
-- **Tenants**  
-- **Tenant Groups** 
-- **Teams**
-
----
-
 #### Locations - সবচেয়ে গুরুত্বপূর্ণ পরিবর্তন
 
 **Nautobot 2.x এ ছিল:** Sites (একটা ফ্ল্যাট লিস্ট)
@@ -76,10 +66,6 @@ Location Type: POP
   - Nestable: Yes
   - Parent: Cluster
 
-Location Type: Rack
-  - Description: Equipment rack
-  - Nestable: No
-  - Parent: POP
 ```
 
 **Actual Locations:**
@@ -104,9 +90,10 @@ Location: Mirpur POP
   - Address: House 25, Road 10, Mirpur-12, Dhaka-1216
   - GPS: 23.8103, 90.3654
 
-Location: Rack A
-  - Type: Rack
-  - Parent: Mirpur POP
+Rack (DCIM Object):
+
+Rack: Rack A
+  - Location: Mirpur POP
   - Status: Active
   - Height: 42U
 ```
@@ -123,15 +110,15 @@ Location: Rack A
 যদি আপনার একাধিক ব্যবসা বা ব্র্যান্ড থাকে, তাহলে Tenants ব্যবহার করবেন।
 
 Nirvor Communication এর দুটো ব্র্যান্ড আছে:
-- Nirvor (Residential)
-- Nirvor Business (Corporate)
+- Nirvor Communicatio (Residential)
+- Nirvor Communication (Corporate)
 
 ```
-Tenant: Nirvor Residential
+Tenant: Nirvor Communication Residential
   - Description: Residential broadband services
   - Group: Consumer Services
 
-Tenant: Nirvor Business
+Tenant: Nirvor Communication Business
   - Description: Corporate connectivity solutions
   - Group: Enterprise Services
 ```
@@ -228,7 +215,7 @@ Device: R-DN-MIR-CORE-01
   - Face: Front
   - Status: Active
   - Serial Number: ABC1234MIR001
-  - Asset Tag: SKY-RTR-001
+  - Asset Tag: NIRVOR-RTR-001
   - Comments: Primary core router for Mirpur POP
 ```
 
@@ -263,7 +250,7 @@ Interface: sfp-sfpplus1
   - MTU: 1500
   - Speed: 10 Gbps
   - Description: "Uplink to BTCL"
-  - Mode: Access (না Trunk)
+  - Mode: Access (Trunk নয়)
 ```
 
 #### Cables - ফিজিক্যাল কানেকশন
@@ -285,7 +272,7 @@ Cable: CORE-TO-DIST-01
   - Type: Single-Mode Fiber (SMF)
   - Status: Connected
   - Color: Blue
-  - Length: 5 meters
+  - Length: 5 m
   - Label: CORE-TO-DIST-01
 ```
 
@@ -305,8 +292,8 @@ Rack: Rack A
   - Width: 19 inches
   - Height: 42U
   - Description: Primary equipment rack
-  - Outer Width: 600mm
-  - Outer Depth: 1000mm
+  - Outer Width: 600 mm
+  - Outer Depth: 1000 mm
 ```
 
 **Rack Elevation:**
@@ -399,8 +386,24 @@ Parent: 103.125.40.0/22 (Container)
 
 Individual IP addresses assign করা হয় devices এর interfaces এ।
 
-Mirpur core router এর loopback IP:
+Management IP Space:
 
+```
+Prefix: 10.10.0.0/16
+  - Type: Container
+  - Status: Active
+  - Namespace: Global
+  - Description: Management IP space
+```
+Uplink & Infrastructure IPs:
+```
+Prefix: 103.125.42.128/25
+  - Type: Container
+  - Status: Active
+  - Namespace: Global
+  - Description: Uplink & Infrastructure IPs
+```
+Mirpur core router এর loopback IP:
 ```
 IP Address: 10.10.1.1/32
   - Status: Active
@@ -428,6 +431,9 @@ IP Address: 103.125.42.130/30
   - DNS Name: r-mir-uplink.nirvor.bd
   - Description: BTCL uplink connection
 ```
+#### Summary
+
+Namespace Nautobot 3.0 এর IPAM মডেলের একটি গুরুত্বপূর্ণ অংশ। এটি overlapping IP design, multi-tenant architecture এবং VRF-based network কে পরিষ্কারভাবে manage করতে সাহায্য করে।
 
 #### VLANs - Layer 2 Segmentation
 
@@ -452,7 +458,7 @@ VLAN 100: RESIDENTIAL_MIR
   - Description: Residential customer traffic - Mirpur
 
 VLAN 200: CORPORATE
-  - Location: (খালি - সব সাইটে ব্যবহার হয়)
+  - Location: Global
   - Status: Active
   - Description: Corporate clients across all sites
 ```
@@ -474,7 +480,7 @@ VLAN 200: CORPORATE
 ```
 Provider: BTCL
   - ASN: 17494
-  - Account Number: SKY-BTCL-2023-MIR
+  - Account Number: NIRVOR-BTCL-2023-MIR
   - Portal URL: https://isp.btcl.gov.bd
   - NOC Contact: +880 2-9555555
   - Admin Contact: noc@btcl.gov.bd
@@ -772,13 +778,13 @@ Cable: CORE-TO-DIST-01
   - From: R-DN-MIR-CORE-01 → sfp-sfpplus2
   - To: SW-DN-MIR-DIST-01 → sfp1
   - Type: SMF
-  - Length: 5m
+  - Length: 5 m
 
 Cable: DIST-TO-ACC-01
   - From: SW-DN-MIR-DIST-01 → ether1
   - To: SW-DN-MIR-ACC-01 → ether24
   - Type: Cat6
-  - Length: 20m
+  - Length: 20 m
 ```
 
 **4. IP Addresses:**
@@ -835,12 +841,12 @@ BTCL Provider
 [R-DN-MIR-CORE-01] sfp-sfpplus1 (103.125.42.130/30)
     | lo0 (10.10.1.1/32)
     |
-    | Cable: CORE-TO-DIST-01 (SMF, 5m)
+    | Cable: CORE-TO-DIST-01 (SMF, 5 m)
     | sfp-sfpplus2 ↔ sfp1
     ↓
 [SW-DN-MIR-DIST-01] vlan10 (10.10.10.11/24)
     |
-    | Cable: DIST-TO-ACC-01 (Cat6, 20m)
+    | Cable: DIST-TO-ACC-01 (Cat6, 20 m)
     | ether1 ↔ ether24
     ↓
 [SW-DN-MIR-ACC-01]

@@ -24,16 +24,6 @@ Nautobot 3.0 এ সবচেয়ে বড় পরিবর্তন হল
 
 Organization App হলো Nautobot এর ভিত্তি। এখানে আপনার নেটওয়ার্কের organizational structure define করবেন।
 
-**Key Objects:**
-
-- **Locations**
-- **Location Types**  
-- **Tenants**  
-- **Tenant Groups** 
-- **Teams**
-
----
-
 #### Locations - সবচেয়ে গুরুত্বপূর্ণ পরিবর্তন
 
 **Nautobot 2.x এ ছিল:** Sites (একটা ফ্ল্যাট লিস্ট)
@@ -282,7 +272,7 @@ Cable: CORE-TO-DIST-01
   - Type: Single-Mode Fiber (SMF)
   - Status: Connected
   - Color: Blue
-  - Length: 5m
+  - Length: 5 m
   - Label: CORE-TO-DIST-01
 ```
 
@@ -302,8 +292,8 @@ Rack: Rack A
   - Width: 19 inches
   - Height: 42U
   - Description: Primary equipment rack
-  - Outer Width: 600mm
-  - Outer Depth: 1000mm
+  - Outer Width: 600 mm
+  - Outer Depth: 1000 mm
 ```
 
 **Rack Elevation:**
@@ -423,7 +413,7 @@ IP Address: 10.10.1.1/32
   - Assigned to:
     * Device: R-DN-MIR-CORE-01
     * Interface: lo0
-  - DNS Name: r-mir-core-01.nirvorcommunication.bd
+  - DNS Name: r-mir-core-01.nirvor.bd
   - Description: Management loopback
 ```
 
@@ -438,7 +428,7 @@ IP Address: 103.125.42.130/30
   - Assigned to:
     * Device: R-DN-MIR-CORE-01
     * Interface: sfp-sfpplus1
-  - DNS Name: r-mir-uplink.nirvorcommunication.bd
+  - DNS Name: r-mir-uplink.nirvor.bd
   - Description: BTCL uplink connection
 ```
 #### Summary
@@ -788,13 +778,13 @@ Cable: CORE-TO-DIST-01
   - From: R-DN-MIR-CORE-01 → sfp-sfpplus2
   - To: SW-DN-MIR-DIST-01 → sfp1
   - Type: SMF
-  - Length: 5m
+  - Length: 5 m
 
 Cable: DIST-TO-ACC-01
   - From: SW-DN-MIR-DIST-01 → ether1
   - To: SW-DN-MIR-ACC-01 → ether24
   - Type: Cat6
-  - Length: 20m
+  - Length: 20 m
 ```
 
 **4. IP Addresses:**
@@ -803,18 +793,18 @@ Cable: DIST-TO-ACC-01
 10.10.1.1/32
   - Assigned to: R-DN-MIR-CORE-01 → lo0
   - Role: Loopback
-  - DNS: r-mir-core-01.nirvorcommunication.bd
+  - DNS: r-mir-core-01.nirvor.bd
 
 103.125.42.130/30
   - Assigned to: R-DN-MIR-CORE-01 → sfp-sfpplus1
   - Role: Network
-  - DNS: r-mir-uplink.nirvorcommunication.bd
+  - DNS: r-mir-uplink.nirvor.bd
   - Description: BTCL uplink
 
 10.10.10.11/24
   - Assigned to: SW-DN-MIR-DIST-01 → vlan10
   - VLAN: MGMT_MIRPUR
-  - DNS: sw-mir-dist-01.nirvorcommunication.bd
+  - DNS: sw-mir-dist-01.nirvor.bd
 ```
 
 **5. VLANs:**
@@ -851,12 +841,12 @@ BTCL Provider
 [R-DN-MIR-CORE-01] sfp-sfpplus1 (103.125.42.130/30)
     | lo0 (10.10.1.1/32)
     |
-    | Cable: CORE-TO-DIST-01 (SMF, 5m)
+    | Cable: CORE-TO-DIST-01 (SMF, 5 m)
     | sfp-sfpplus2 ↔ sfp1
     ↓
 [SW-DN-MIR-DIST-01] vlan10 (10.10.10.11/24)
     |
-    | Cable: DIST-TO-ACC-01 (Cat6, 20m)
+    | Cable: DIST-TO-ACC-01 (Cat6, 20 m)
     | ether1 ↔ ether24
     ↓
 [SW-DN-MIR-ACC-01]
